@@ -111,7 +111,6 @@ class DehumidiferFan(ApplianceEntity, FanEntity):
 
     def turn_on(
         self,
-        speed: str = None,
         percentage: int = None,
         preset_mode: str = None,
         **kwargs,
@@ -123,9 +122,6 @@ class DehumidiferFan(ApplianceEntity, FanEntity):
             updated = True
         if percentage is not None:
             self.set_percentage(percentage)
-            updated = True
-        if speed is not None:
-            self.set_speed(speed)
             updated = True
         # _LOGGER.debug("turn_on percentage=%s was_updated=%s", self._attr_percentage, updated)
         if (

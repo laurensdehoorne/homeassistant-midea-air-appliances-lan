@@ -279,7 +279,7 @@ class AirConditionerEntity(ApplianceEntity, ClimateEntity):
                 frost_protect=True,
                 comfort_mode=False,
             )
-        elif preset_mode == PRESET_SLEEP:
+        elif preset_mode == PRESET_COMFORT:
             self.apply(
                 turbo=False,
                 eco_mode=False,

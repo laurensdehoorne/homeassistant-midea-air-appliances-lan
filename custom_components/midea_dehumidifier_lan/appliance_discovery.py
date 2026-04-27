@@ -58,10 +58,12 @@ def empty_address_iterator():
     yield from ()
 
 
-def _add_if_discoverable(conf_addresses: list[str], device: dict[str, Any]):
-    if device.get(CONF_DISCOVERY) != DISCOVERY_LAN:
+def _add_if_discoverable(conf_addresses: list[str], device: dict[str, Any]) -> bool:
+    if device.get(CONF_DISCOVERY) == DISCOVERY_LAN:
         if address_ok(device[CONF_IP_ADDRESS]):
             conf_addresses.append(device[CONF_IP_ADDRESS])
+            return True
+    return False
 
 
 @dataclass

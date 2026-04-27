@@ -655,9 +655,9 @@ class MideaConfigFlow(ConfigFlow, _MideaFlow, domain=DOMAIN):
             except Exception as ex:  # pylint: disable=broad-except
                 self._process_exception(ex)
             else:
-                self.conf[CONF_USERNAME] = username
-                self.conf[CONF_PASSWORD] = password
-                self.conf[CONF_MOBILE_APP] = app
+                self.conf[CONF_USERNAME] = extra_conf[CONF_USERNAME]
+                self.conf[CONF_PASSWORD] = extra_conf[CONF_PASSWORD]
+                self.conf[CONF_MOBILE_APP] = extra_conf[CONF_MOBILE_APP]
                 return await self._async_add_entry()
 
         return self.async_show_form(
